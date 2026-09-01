@@ -1,0 +1,28 @@
+{
+    "banner": {
+        "title": "Curated Bundles",
+        "description": "Maximize your savings and convenience with our expertly curated bundles. Freshness and quality, grouped just for you.",
+        "bgGradientStart": "#f5f7fa",
+        "bgGradientEnd": "#c3cfe2"
+    },
+    "bundles": [
+        {
+            "id": "bundle-1",
+            "name": "Wellness & Freshness Combo",
+            "description": "Premium health oil combined with refreshing floral home scent.",
+            "price": 380,
+            "discountText": "Save 10%",
+            "color": "#4CAF50",
+            "productIds": [2, 94]
+        },
+        {
+            "id": "bundle-2",
+            "name": "Essential Utility Pack",
+            "description": "Handy tools including professional calculator, color guard solution, and fresh car scent.",
+            "price": 850,
+            "discountText": "Save 15%",
+            "color": "#FF9800",
+            "productIds": [1, 14, 126]
+        }
+    ]
+}

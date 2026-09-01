@@ -1,0 +1,2 @@
+Error: Uncaught SyntaxError: Identifier 'updateUserUI' has already been declared at http://localhost:8000/app.js:344:1
+Stack: SyntaxError: Identifier 'updateUserUI' has already been declared

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Evin's Mart | Your Local Supermarket</title>
+    <script>
+        window.onerror = function(msg, url, line, col, error) {
+            fetch('http://127.0.0.1:8001/log_error', { method: 'POST', body: 'Error: ' + msg + ' at ' + url + ':' + line + ':' + col + '\nStack: ' + (error ? error.stack : '') });
+        };
+        window.addEventListener('unhandledrejection', function(event) {
+            fetch('http://127.0.0.1:8001/log_error', { method: 'POST', body: 'Unhandled Rejection: ' + event.reason });
+        });
+    </script>
+    <meta name="description" content="Shop fresh produce, groceries, and daily essentials at Evin's Mart.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Cropper.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Top Restaurant Announcement Banner -->
+    <div id="top-restaurant-banner" class="top-announcement-banner" onclick="document.querySelector('[data-route=\'restaurant\']').click();">
+        <div class="banner-content">
+            <span class="banner-badge">🍽️ RESTAURANT OPEN</span>
+            <span class="banner-text">Hungry? Order Hot Dum Biriyani, Charcoal Alfaham & Meals from <strong>Evin's Kitchen</strong>!</span>
+            <span class="banner-cta">Explore Menu <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">arrow_forward</span></span>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-left">
+            <button id="menu-btn" class="icon-btn"><span class="material-symbols-outlined">menu</span></button>
+            <div class="logo" id="nav-logo" onclick="document.querySelector('[data-route=\'home\']').click();">
+                <img src="logo.png" alt="Evin's Mart Logo" style="height: 40px; margin-right: 8px; border-radius: 8px;">
+                <span class="logo-text">Evin's<span class="logo-highlight">Mart</span></span>
+            </div>
+        </div>
+
+        <div class="nav-search">
+            <div class="search-container">
+                <span class="material-symbols-outlined search-icon">search</span>
+                <input type="text" id="global-search-input" placeholder="Search products, dishes...">
+                <div id="search-autocomplete-dropdown" class="autocomplete-dropdown" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button id="lang-btn" class="lang-toggle">
+                <span class="lang-text">EN</span>
+                <span class="material-symbols-outlined">language</span>
+            </button>
+            <button id="user-btn" class="icon-btn" title="Login / Rewards">
+                <span class="material-symbols-outlined">person</span>
+                <span id="user-points-badge" class="badge" style="display: none; background: #FFD700; color: #000;">0</span>
+            </button>
+            <button id="admin-btn" class="icon-btn" onclick="document.querySelector('[data-route=\'admin\']').click();">
+                <span class="material-symbols-outlined">admin_panel_settings</span>
+            </button>
+            <button id="cart-btn" class="icon-btn cart-btn">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span id="cart-badge" class="badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button id="close-sidebar" class="icon-btn"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" data-route="home"><span class="material-symbols-outlined">home</span> <span data-i18n="nav.home">Home</span></a>
+            <a href="#" data-route="restaurant" class="restaurant-nav-item"><span class="material-symbols-outlined">restaurant</span> <span data-i18n="nav.restaurant">Restaurant</span></a>
+            <a href="#" data-route="catalog"><span class="material-symbols-outlined">storefront</span> <span data-i18n="nav.shop">Shop All</span></a>
+            <a href="#" data-route="bundles"><span class="material-symbols-outlined">category</span> <span data-i18n="nav.bundles">Bundles</span></a>
+            <a href="#" data-route="rewards"><span class="material-symbols-outlined">stars</span> <span data-i18n="nav.rewards">Fresh Rewards</span></a>
+            <a href="#" data-route="about"><span class="material-symbols-outlined">info</span> <span data-i18n="nav.about">About Us</span></a>
+            <a href="#" data-route="admin" class="admin-link"><span class="material-symbols-outlined">admin_panel_settings</span> <span data-i18n="nav.admin">Admin</span></a>
+        </nav>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="sidebar-header">
+            <h3>Your Cart</h3>
+            <button id="close-cart" class="icon-btn"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <div id="cart-content" class="cart-body">
+            <!-- Dynamic Cart Items / Checkout -->
+        </div>
+        <div id="cart-footer" class="cart-footer">
+            <!-- Dynamic Footer (Subtotals / Place Order) -->
+        </div>
+    </div>
+
+    <div id="sidebar-overlay" class="overlay"></div>
+
+    <!-- Main Content Area -->
+    <main id="app-container">
+        <!-- Views will be injected here by app.js -->
+    </main>
+
+
+    <!-- Add Dish Modal -->
+    <div id="add-dish-modal" class="modal">
+        <div class="modal-content" style="max-width: 550px; width: 92%;">
+            <button class="close-modal" id="close-dish-modal"><span class="material-symbols-outlined">close</span></button>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+                <span class="material-symbols-outlined" style="font-size: 2rem; color: #e65100;">restaurant_menu</span>
+                <h2 style="margin: 0; font-size: 1.5rem;">Add New Dish to Restaurant</h2>
+            </div>
+            <form id="add-dish-form" onsubmit="return false;">
+                <div class="input-group" style="margin-bottom: 14px;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 4px;">Dish Name *</label>
+                    <input type="text" id="dish-name" placeholder="e.g. Special Beef Biriyani" required style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: inherit;">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                    <div class="input-group">
+                        <label style="font-weight: 600; display: block; margin-bottom: 4px;">Category *</label>
+                        <select id="dish-category" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: inherit;">
+                            <option value="Biriyani">Biriyani</option>
+                            <option value="Alfaham">Alfaham</option>
+                            <option value="Meals & Mains">Meals & Mains</option>
+                            <option value="Sweets & Snacks">Sweets & Snacks</option>
+                            <option value="Beverages">Beverages</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label style="font-weight: 600; display: block; margin-bottom: 4px;">Price (₹) *</label>
+                        <input type="number" id="dish-price" placeholder="150" min="1" required style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: inherit;">
+                    </div>
+                </div>
+                <div class="input-group" style="margin-bottom: 14px;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 4px;">Badge (Optional)</label>
+                    <input type="text" id="dish-badge" placeholder="e.g. Bestseller, Special, Chef Pick" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: inherit;">
+                </div>
+                <div class="input-group" style="margin-bottom: 14px;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 4px;">Description</label>
+                    <textarea id="dish-desc" rows="2" placeholder="Delicious recipe description..." style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: inherit; resize: vertical;"></textarea>
+                </div>
+                <div class="input-group" style="margin-bottom: 20px;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 4px;">Dish Image Upload *</label>
+                    <input type="file" id="dish-image-file" accept="image/*" style="width: 100%; padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: #f9f9f9;">
+                    <div style="font-size: 0.8rem; color: #888; margin-top: 4px;">OR paste an image URL directly:</div>
+                    <input type="url" id="dish-image-url" placeholder="https://example.com/image.jpg" style="width: 100%; padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-md); margin-top: 4px; font-family: inherit;">
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" class="btn btn-outline" id="cancel-dish-btn">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="save-dish-btn" style="background: linear-gradient(135deg, #e65100, #ff9800); border: none;">Save & Publish Dish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Crop Modal -->
+    <div id="crop-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; width: 90%;">
+            <button class="close-modal" id="close-crop-btn"><span class="material-symbols-outlined">close</span></button>
+            <h2>Crop Image</h2>
+            <div style="width: 100%; max-height: 400px; margin: 20px 0; background: #eee;">
+                <img id="crop-image-target" src="" style="max-width: 100%; display: block;">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-outline" id="cancel-crop-btn">Cancel</button>
+                <button class="btn btn-primary" id="save-crop-btn">Crop & Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <button class="close-modal" id="close-auth-btn"><span class="material-symbols-outlined">close</span></button>
+            <div id="auth-step-1">
+                <h2>Login with Phone</h2>
+                <p>Enter your phone number to earn and redeem loyalty points!</p>
+                <div style="margin: 20px 0; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                    <div style="padding: 10px 15px; background: #f5f5f5; border-right: 1px solid #ddd; font-weight: bold; color: #555;">+91</div>
+                    <input type="tel" id="phone-input" placeholder="98765 43210" maxlength="10" style="width: 100%; padding: 10px; font-size: 16px; border: none; outline: none;">
+                </div>
+                <div id="recaptcha-container"></div>
+                <button class="btn btn-primary" id="send-otp-btn" style="width: 100%; margin-top: 10px;">Send Code</button>
+            </div>
+            
+            <div id="auth-step-2" style="display: none;">
+                <h2>Enter Code</h2>
+                <p>We sent a 6-digit code to your phone.</p>
+                <div style="margin: 20px 0;">
+                    <input type="text" id="otp-input" placeholder="123456" maxlength="6" style="width: 100%; padding: 10px; font-size: 24px; text-align: center; letter-spacing: 5px; border: 1px solid #ddd; border-radius: 8px;">
+                </div>
+                <button class="btn btn-primary" id="verify-otp-btn" style="width: 100%;">Verify & Login</button>
+                <button class="btn btn-outline" id="resend-otp-btn" style="width: 100%; margin-top: 10px;">Resend Code</button>
+            </div>
+            
+            <div id="auth-step-3" style="display: none;">
+                <h2>Welcome Back!</h2>
+                <p>You have <strong id="auth-points-display" style="color: #4CAF50; font-size: 1.2em;">0</strong> points.</p>
+                <button class="btn btn-outline" id="logout-btn" style="width: 100%; margin-top: 20px;">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Scripts -->
+    <script type="module" src="data.js?v=4"></script>
+    <script type="module" src="app.js?v=4"></script>
+    <script type="module" src="admin.js?v=4"></script>
+</body>
+</html>

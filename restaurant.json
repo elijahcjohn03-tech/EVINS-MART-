@@ -1,0 +1,170 @@
+[
+    {
+        "id": "rest-101",
+        "name": "Chicken Dum Biriyani",
+        "category": "Biriyani",
+        "price": 180,
+        "mrp": 200,
+        "stock": 50,
+        "description": "Rich & aromatic Malabar style chicken dum biriyani served with raita, pickle and date chutney.",
+        "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&auto=format&fit=crop&q=80",
+        "badge": "Bestseller",
+        "unavailable": false
+    },
+    {
+        "id": "rest-102",
+        "name": "Kappa Biriyani",
+        "category": "Biriyani",
+        "price": 160,
+        "mrp": 180,
+        "stock": 40,
+        "description": "Traditional Kerala tapioca cooked with spiced beef chunks and aromatic herbs.",
+        "img": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=500&auto=format&fit=crop&q=80",
+        "badge": "Kerala Special"
+    },
+    {
+        "id": "rest-103",
+        "name": "Full Alfaham",
+        "category": "Alfaham",
+        "price": 480,
+        "mrp": 520,
+        "stock": 25,
+        "description": "Full charcoal-grilled chicken marinated in authentic Arabian spices, served with mayonnaise and kubboos.",
+        "img": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=500&auto=format&fit=crop&q=80",
+        "badge": "Chef Special"
+    },
+    {
+        "id": "rest-104",
+        "name": "Half Alfaham",
+        "category": "Alfaham",
+        "price": 250,
+        "mrp": 270,
+        "stock": 30,
+        "description": "Half charcoal-grilled marinated chicken served with garlic sauce and kubboos.",
+        "img": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-105",
+        "name": "Quarter Alfaham",
+        "category": "Alfaham",
+        "price": 130,
+        "mrp": 140,
+        "stock": 35,
+        "description": "Quarter charcoal-grilled marinated chicken served with garlic sauce.",
+        "img": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-106",
+        "name": "Full Peri Peri Alfaham",
+        "category": "Alfaham",
+        "price": 500,
+        "mrp": 550,
+        "stock": 20,
+        "description": "Full charcoal grilled chicken smothered in spicy Peri Peri marinade.",
+        "img": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500&auto=format&fit=crop&q=80",
+        "badge": "Spicy Hit"
+    },
+    {
+        "id": "rest-107",
+        "name": "Half Peri Peri Alfaham",
+        "category": "Alfaham",
+        "price": 270,
+        "mrp": 290,
+        "stock": 25,
+        "description": "Half charcoal grilled chicken with fiery Peri Peri spices.",
+        "img": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-108",
+        "name": "Quarter Peri Peri Alfaham",
+        "category": "Alfaham",
+        "price": 140,
+        "mrp": 150,
+        "stock": 30,
+        "description": "Quarter charcoal grilled Peri Peri spicy chicken piece.",
+        "img": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-109",
+        "name": "Pazhampoori Beef",
+        "category": "Sweets & Snacks",
+        "price": 90,
+        "mrp": 100,
+        "stock": 50,
+        "description": "Crispy sweet banana fritters paired with spicy slow-cooked Kerala beef roast.",
+        "img": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=500&auto=format&fit=crop&q=80",
+        "badge": "Must Try"
+    },
+    {
+        "id": "rest-110",
+        "name": "Kerala Meals",
+        "category": "Meals & Mains",
+        "price": 100,
+        "mrp": 110,
+        "stock": 60,
+        "description": "Traditional Kerala Matta rice served with sambar, rasam, moru, thoran, avial and papadam.",
+        "img": "https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-111",
+        "name": "Kappa Meen Curry",
+        "category": "Meals & Mains",
+        "price": 120,
+        "mrp": 140,
+        "stock": 40,
+        "description": "Steamed seasoned tapioca served with authentic Kerala spicy red fish curry.",
+        "img": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&auto=format&fit=crop&q=80",
+        "badge": "Local Favorite"
+    },
+    {
+        "id": "rest-112",
+        "name": "Special Meals",
+        "category": "Meals & Mains",
+        "price": 230,
+        "mrp": 250,
+        "stock": 35,
+        "description": "Grand Kerala feast with Matta rice, fish fry, chicken curry, payasam, side dishes & papadam.",
+        "img": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500&auto=format&fit=crop&q=80",
+        "badge": "Deluxe"
+    },
+    {
+        "id": "rest-113",
+        "name": "Chilly Chicken",
+        "category": "Meals & Mains",
+        "price": 160,
+        "mrp": 180,
+        "stock": 45,
+        "description": "Indo-Chinese style crispy fried chicken tossed in spicy garlic soy bell pepper sauce.",
+        "img": "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-114",
+        "name": "Chicken Fried Rice",
+        "category": "Meals & Mains",
+        "price": 140,
+        "mrp": 160,
+        "stock": 50,
+        "description": "Flavorful wok-tossed Basmati rice with shredded chicken, veggies and oriental spices.",
+        "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-115",
+        "name": "Traditional Sweets Selection",
+        "category": "Sweets & Snacks",
+        "price": 80,
+        "mrp": 90,
+        "stock": 50,
+        "description": "Assorted fresh Kerala sweets including Unniyappam, Neyyappam & Laddu.",
+        "img": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+        "id": "rest-116",
+        "name": "Evening Snacks Platter",
+        "category": "Sweets & Snacks",
+        "price": 60,
+        "mrp": 70,
+        "stock": 60,
+        "description": "Freshly fried hot cutlets, samosas, and banana chips.",
+        "img": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=80"
+    }
+]
